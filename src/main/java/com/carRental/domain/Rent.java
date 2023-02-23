@@ -40,4 +40,8 @@ public class Rent {
 
     @Column(name = "END_RENT_DATE")
     private LocalDate endRentDate;
+
+    @OneToOne(mappedBy = "rent")
+    @JoinColumn(name = "CAR_ID")
+    private Car car;
 }
