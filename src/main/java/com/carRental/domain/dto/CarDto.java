@@ -1,10 +1,12 @@
 package com.carRental.domain.dto;
 
-import com.carRental.domain.Rent;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @AllArgsConstructor
@@ -15,7 +17,6 @@ public class CarDto {
     private String licencePlateNumber;
     private String brand;
     private String model;
-    private Rent rent;
-
+    private List<Long> rentsId = new ArrayList<>();
 }
 

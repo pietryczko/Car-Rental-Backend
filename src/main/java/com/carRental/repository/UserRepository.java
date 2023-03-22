@@ -1,6 +1,6 @@
 package com.carRental.repository;
 
-import com.carRental.domain.Rent;
+import com.carRental.domain.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,15 +10,10 @@ import java.util.Optional;
 
 @Repository
 @Transactional
-public interface RentRepository extends CrudRepository<Rent, Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
     @Override
-    Optional<Rent> findById(Long id);
+    Optional<User> findById(Long id);
 
     @Override
-    List<Rent> findAll();
-
-    Optional<List<Rent>> findAllByRentedCar_Id(Long carId);
-
-    Optional<List<Rent>> findAllByRentUser_Id(Long userId);
-
+    List<User> findAll();
 }

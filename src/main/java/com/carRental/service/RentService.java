@@ -2,6 +2,7 @@ package com.carRental.service;
 
 import com.carRental.controler.exceptions.RentNotFoundException;
 import com.carRental.domain.Rent;
+import com.carRental.domain.dto.RentDto;
 import com.carRental.repository.RentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

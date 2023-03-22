@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -34,7 +36,12 @@ public class Car {
     @Column(name = "MODEL")
     private String model;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "RENT_ID")
-    private Rent rent;
+    @OneToMany(
+            targetEntity = Rent.class,
+            mappedBy = "rentedCar",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+
+    )
+    private List<Rent> rents = new ArrayList<>();
 }

@@ -1,7 +1,6 @@
 package com.carRental.controler;
 
 import com.carRental.controler.exceptions.CarNotFoundException;
-import com.carRental.controler.exceptions.RentNotFoundException;
 import com.carRental.domain.Car;
 import com.carRental.domain.dto.CarDto;
 import com.carRental.mapper.CarMapper;
@@ -16,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("v1/car")
+@RequestMapping("/car")
 public class CarController {
 
     private final CarService carService;
@@ -36,7 +35,7 @@ public class CarController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> createCar(@RequestBody CarDto carDto) throws RentNotFoundException {
+    public ResponseEntity<Void> createCar(@RequestBody CarDto carDto) {
         Car car = carMapper.mapToCar(carDto);
         carService.saveCar(car);
         return ResponseEntity.ok().build();
@@ -49,12 +48,12 @@ public class CarController {
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CarDto> updateCar(@RequestBody CarDto carDto) throws CarNotFoundException, RentNotFoundException {
+    public ResponseEntity<CarDto> updateCar(@RequestBody CarDto carDto) throws CarNotFoundException {
         Car car = carService.findById(carDto.getId());
         car.setBrand(carDto.getBrand());
         car.setModel(carDto.getModel());
         car.setLicencePlateNumber(carDto.getLicencePlateNumber());
-        car.setRent(rentRepository.findById(carDto.getRent().getId()).orElseThrow(RentNotFoundException::new));
+        car.setRents(rentRepository.findAllByRentedCar_Id(carDto.getId()).orElse(null));
         Car updatedCar = carService.saveCar(car);
         return ResponseEntity.ok(carMapper.mapToCarDto(updatedCar));
     }

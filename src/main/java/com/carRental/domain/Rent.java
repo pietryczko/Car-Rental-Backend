@@ -2,6 +2,7 @@ package com.carRental.domain;
 
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Builder
 @Entity
 @Table(name = "RENTS")
 public class Rent {
@@ -20,11 +22,7 @@ public class Rent {
     @GeneratedValue
     @NotNull
     @Column(name = "RENT_ID", unique = true)
-    private long id;
-
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "USER_ID")
-    private User rentUser;
+    private Long id;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -41,7 +39,11 @@ public class Rent {
     @Column(name = "END_RENT_DATE")
     private LocalDate endRentDate;
 
-    @OneToOne(mappedBy = "rent")
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "USER_ID")
+    private User rentUser;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "CAR_ID")
-    private Car car;
+    private Car rentedCar;
 }
