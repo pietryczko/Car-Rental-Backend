@@ -36,6 +36,11 @@ public class User {
     @Column(name = "PESEL", unique = true)
     private int personalIdNumber;
 
+    @NotNull
+    @Column(name = "ADMIN")
+    private boolean isAdmin;
+
+
     @OneToMany(
             targetEntity = Rent.class,
             mappedBy = "rentUser",

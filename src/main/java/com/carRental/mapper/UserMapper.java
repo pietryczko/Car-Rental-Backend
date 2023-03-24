@@ -22,6 +22,7 @@ public class UserMapper {
                 .name(userDto.getName())
                 .surname(userDto.getSurname())
                 .personalIdNumber(userDto.getPersonalIdNumber())
+                .isAdmin(userDto.isAdmin())
                 .rents(findAllById(userDto.getRentsId()))
                 .build();
     }
@@ -32,6 +33,7 @@ public class UserMapper {
                 .name(user.getName())
                 .surname(user.getSurname())
                 .personalIdNumber(user.getPersonalIdNumber())
+                .isAdmin(user.isAdmin())
                 .rentsId(user.getRents() == null ? null : user.getRents().stream()
                         .map(Rent::getId)
                         .collect(Collectors.toList()))
