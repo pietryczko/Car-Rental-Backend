@@ -21,6 +21,9 @@ public class RentService {
     public List<Rent> getAllRents() {
         return rentRepository.findAll();
     }
+    public List<Rent> getRentsByUser(long userId){
+        return rentRepository.findAllByRentUser_Id(userId).orElse(null);
+    }
 
     public Rent findById(Long id) throws RentNotFoundException {
         return rentRepository.findById(id).orElseThrow(RentNotFoundException::new);

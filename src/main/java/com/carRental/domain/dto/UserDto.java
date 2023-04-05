@@ -17,6 +17,5 @@ public class UserDto {
     private String name;
     private String surname;
     private int personalIdNumber;
-    private boolean isAdmin;
     private List<Long> rentsId = new ArrayList<>();
 }
