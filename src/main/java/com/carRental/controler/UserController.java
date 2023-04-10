@@ -1,12 +1,8 @@
 package com.carRental.controler;
 
-import com.carRental.controler.exceptions.RentNotFoundException;
 import com.carRental.controler.exceptions.UserNotFoundException;
-import com.carRental.domain.Rent;
 import com.carRental.domain.User;
-import com.carRental.domain.dto.RentDto;
 import com.carRental.domain.dto.UserDto;
-import com.carRental.mapper.RentMapper;
 import com.carRental.mapper.UserMapper;
 import com.carRental.service.RentService;
 import com.carRental.service.UserService;
@@ -21,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/user")
 public class UserController {
-//    private final RentService rentService;
+    //    private final RentService rentService;
     private final UserMapper userMapper;
     private final UserService userService;
     private final RentService rentService;

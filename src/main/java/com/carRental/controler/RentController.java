@@ -9,7 +9,6 @@ import com.carRental.mapper.RentMapper;
 import com.carRental.service.CarService;
 import com.carRental.service.RentService;
 import com.carRental.service.UserService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -32,10 +31,10 @@ public class RentController {
         return ResponseEntity.ok(rentMapper.listMapToRentDto(rents));
     }
 
-    @GetMapping(value = "{carId}")
+    @GetMapping(value = "{rentId}")
     public ResponseEntity<RentDto> getRent(@PathVariable long rentId) throws RentNotFoundException {
-     Rent rent = rentService.findById(rentId);
-     return ResponseEntity.ok(rentMapper.mapToRentDto(rent));
+        Rent rent = rentService.findById(rentId);
+        return ResponseEntity.ok(rentMapper.mapToRentDto(rent));
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -45,14 +44,14 @@ public class RentController {
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping(value = "{RentId}")
+    @DeleteMapping(value = "{rentId}")
     public ResponseEntity<Void> deleteRent(@PathVariable long rentId) {
         rentService.deleteRent(rentId);
         return ResponseEntity.ok().build();
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<RentDto> upadteRent(@RequestBody RentDto rentDto) throws UserNotFoundException, CarNotFoundException, RentNotFoundException {
+    public ResponseEntity<RentDto> updateRent(@RequestBody RentDto rentDto) throws UserNotFoundException, CarNotFoundException, RentNotFoundException {
         Rent rent = rentService.findById(rentDto.getId());
         rent.setCost(rentDto.getCost());
         rent.setRentStatus(rentDto.getRentStatus());
