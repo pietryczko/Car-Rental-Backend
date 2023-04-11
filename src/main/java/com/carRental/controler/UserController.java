@@ -17,7 +17,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/user")
 public class UserController {
-    //    private final RentService rentService;
     private final UserMapper userMapper;
     private final UserService userService;
     private final RentService rentService;
