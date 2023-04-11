@@ -43,5 +43,5 @@ public class Car {
             fetch = FetchType.LAZY
 
     )
-    private List<Rent> rents = new ArrayList<>();
+    private List<Rent> rents;
 }

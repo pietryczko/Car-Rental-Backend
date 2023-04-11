@@ -42,5 +42,5 @@ public class User {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    private List<Rent> rents = new ArrayList<>();
+    private List<Rent> rentsId;
 }

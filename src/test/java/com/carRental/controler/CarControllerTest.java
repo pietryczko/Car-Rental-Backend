@@ -71,7 +71,7 @@ class CarControllerTest {
 
         //When & Then
         mockMvc.perform(MockMvcRequestBuilders
-                        .put("/car")
+                        .post("/car")
                         .contentType(MediaType.APPLICATION_JSON)
                         .characterEncoding("UTF-8")
                         .content(jsonContent))

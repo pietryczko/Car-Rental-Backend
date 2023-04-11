@@ -51,7 +51,7 @@ public class UserController {
         User user = userService.findById(userDto.getId());
         user.setName(userDto.getName());
         user.setSurname(userDto.getSurname());
-        user.setRents(rentService.getRentsByUser(userDto.getId()));
+        user.setRentsId(rentService.getRentsByUser(userDto.getId()));
         user.setPersonalIdNumber(userDto.getPersonalIdNumber());
         return ResponseEntity.ok(userMapper.mapToUserDto(user));
     }

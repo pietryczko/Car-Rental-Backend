@@ -17,5 +17,5 @@ public class UserDto {
     private String name;
     private String surname;
     private int personalIdNumber;
-    private List<Long> rentsId = new ArrayList<>();
+    private List<Long> rentsId;
 }
