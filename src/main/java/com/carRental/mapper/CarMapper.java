@@ -21,6 +21,7 @@ public class CarMapper {
                 .id(carDto.getId())
                 .brand(carDto.getBrand())
                 .model(carDto.getModel())
+                .status(carDto.getCarStatus())
                 .licencePlateNumber(carDto.getLicencePlateNumber())
                 .rents(findAllById(carDto.getRentsId()))
                 .build();
@@ -31,6 +32,7 @@ public class CarMapper {
                 .id(car.getId())
                 .brand(car.getBrand())
                 .model(car.getModel())
+                .carStatus(car.getStatus())
                 .licencePlateNumber(car.getLicencePlateNumber())
                 .rentsId((car.getRents() == null ? null : car.getRents().stream()
                         .map(Rent::getId)

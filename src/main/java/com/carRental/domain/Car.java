@@ -36,6 +36,11 @@ public class Car {
     @Column(name = "MODEL")
     private String model;
 
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    @Column(name = "CAR_STATUS")
+    private CarStatus status;
+
     @OneToMany(
             targetEntity = Rent.class,
             mappedBy = "rentedCar",
