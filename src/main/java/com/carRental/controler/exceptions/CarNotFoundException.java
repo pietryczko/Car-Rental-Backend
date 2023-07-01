@@ -1,4 +1,4 @@
 package com.carRental.controler.exceptions;
 
-public class CarNotFoundException extends  Exception{
+public class CarNotFoundException extends  Exception {
 }

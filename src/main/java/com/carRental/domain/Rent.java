@@ -1,5 +1,6 @@
 package com.carRental.domain;
 
+import com.carRental.domain.Status.RentStatus;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -46,4 +47,8 @@ public class Rent {
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "CAR_ID")
     private Car rentedCar;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "CITY_ID")
+    private City city;
 }

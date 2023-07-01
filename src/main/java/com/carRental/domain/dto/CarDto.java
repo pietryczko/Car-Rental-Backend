@@ -1,9 +1,8 @@
 package com.carRental.domain.dto;
 
-import com.carRental.domain.CarStatus;
+import com.carRental.domain.Status.CarStatus;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter

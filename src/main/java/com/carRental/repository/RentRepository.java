@@ -21,4 +21,6 @@ public interface RentRepository extends CrudRepository<Rent, Long> {
 
     Optional<List<Rent>> findAllByRentUser_Id(Long userId);
 
+    Optional<List<Rent>> findAllByCity_Id(Long cityId);
+
 }
