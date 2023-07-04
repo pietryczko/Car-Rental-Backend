@@ -1,6 +1,7 @@
 package com.carRental.domain;
 
-import com.carRental.domain.Status.RentStatus;
+
+import com.carRental.domain.status.RentStatus;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

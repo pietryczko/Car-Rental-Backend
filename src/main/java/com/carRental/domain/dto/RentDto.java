@@ -1,6 +1,6 @@
 package com.carRental.domain.dto;
 
-import com.carRental.domain.Status.RentStatus;
+import com.carRental.domain.status.RentStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

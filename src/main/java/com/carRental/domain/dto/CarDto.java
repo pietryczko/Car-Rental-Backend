@@ -1,8 +1,9 @@
 package com.carRental.domain.dto;
 
-import com.carRental.domain.Status.CarStatus;
+import com.carRental.domain.status.CarStatus;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Getter
@@ -15,6 +16,7 @@ public class CarDto {
     private String licencePlateNumber;
     private String brand;
     private String model;
+    private BigDecimal price;
     private CarStatus carStatus;
     private List<Long> rentsId;
 }

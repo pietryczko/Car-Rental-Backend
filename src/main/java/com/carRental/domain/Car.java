@@ -1,6 +1,6 @@
 package com.carRental.domain;
 
-import com.carRental.domain.Status.CarStatus;
+import com.carRental.domain.status.CarStatus;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 @NoArgsConstructor
@@ -35,6 +36,10 @@ public class Car {
     @NotNull
     @Column(name = "MODEL")
     private String model;
+
+    @NotNull
+    @Column(name = "PRICE_PER_DAY")
+    private BigDecimal price;
 
     @NotNull
     @Enumerated(EnumType.STRING)
